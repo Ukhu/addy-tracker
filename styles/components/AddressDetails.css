@@ -1,0 +1,37 @@
+.address-details {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 50px 50px -25px rgba(0, 0, 0, 0.0983665);
+  border-radius: 15px;
+  margin-top: 1.5rem;
+  padding: 1.625rem 1.5rem;
+}
+
+.address-details__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.address-details__item:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.address-details__item-title {
+  color: var(--dark-gray-xl);
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+.address-details__item-body {
+  color: var(--dark-gray);
+  font-size: 20px;
+  font-weight: 500;
+}

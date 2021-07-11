@@ -1,8 +1,14 @@
 .search-bar {
+  position: relative;
   height: 18.75rem;
+  background: linear-gradient(225deg, #5f86f2 2.99%, #443d97 100%);
+}
+
+.search-bar__content {
+  position: absolute;
+  top: 0;
   padding: 1.5rem;
-  background-image: url("../../assets/images/pattern-bg.png");
-  background-size: cover;
+  width: 100%;
 }
 
 .search-bar__title {
@@ -19,6 +25,9 @@
 
 .search-bar__input {
   background-color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--dark-gray);
   padding: 1.125rem 1.5rem;
   flex-grow: 1;
   border: none;
