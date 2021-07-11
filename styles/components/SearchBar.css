@@ -11,6 +11,12 @@
   width: 100%;
 }
 
+@media screen and (min-width: 768px) {
+  .search-bar__content {
+    padding: 2rem;
+  }
+}
+
 .search-bar__title {
   text-align: center;
   font-size: 26px;
@@ -21,6 +27,13 @@
 
 .search-bar__input-group {
   display: flex;
+}
+
+@media screen and (min-width: 768px) {
+  .search-bar__input-group {
+    width: 34.6875rem;
+    margin: 0 auto;
+  }
 }
 
 .search-bar__input {
