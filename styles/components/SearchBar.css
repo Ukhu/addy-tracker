@@ -1,0 +1,35 @@
+.search-bar {
+  height: 18.75rem;
+  padding: 1.5rem;
+  background-image: url("../../assets/images/pattern-bg.png");
+  background-size: cover;
+}
+
+.search-bar__title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 1.8125rem;
+}
+
+.search-bar__input-group {
+  display: flex;
+}
+
+.search-bar__input {
+  background-color: #ffffff;
+  padding: 1.125rem 1.5rem;
+  flex-grow: 1;
+  border: none;
+  border-radius: 15px 0 0 15px;
+}
+
+.search-bar__input-icon {
+  display: grid;
+  place-items: center;
+  background-color: #000000;
+  height: 3.625rem;
+  width: 3.625rem;
+  border-radius: 0 15px 15px 0;
+}

@@ -1,0 +1,6 @@
+:root {
+  --breakpoint: 768px;
+
+  --dark-gray: hsl(0, 0%, 17%);
+  --dark-gray-xl: hsl(0, 0%, 59%);
+}
