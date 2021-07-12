@@ -6,6 +6,12 @@
   background-size: cover;
 }
 
+@media screen and (min-width: 768px) {
+  .search-bar {
+    height: 17.5rem;
+  }
+}
+
 .search-bar__title {
   text-align: center;
   font-size: 26px;
