@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import ArrowIcon from "../assets/icons/icon-arrow.svg";
-import SearchBarBg from "../assets/images/pattern-bg.png";
 
 import AddressDetails from "./AddressDetails";
 
@@ -13,7 +12,7 @@ const SearchBar = () => {
         <input
           className="search-bar__input"
           type="text"
-          defaultValue="192.212.174.101"
+          placeholder="Search for any IP address or domain"
         />
         <div className="search-bar__input-icon">
           <Image src={ArrowIcon} alt="Arrow SVG icon" />
