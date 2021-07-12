@@ -1,6 +1,6 @@
 const AddressDetails = () => {
   return (
-    <section className="address-details">
+    <div className="address-details">
       <div className="address-details__group">
         <div className="address-details__item">
           <h2 className="address-details__item-title">IP Address</h2>
@@ -22,7 +22,7 @@ const AddressDetails = () => {
           <p className="address-details__item-body">SpaceX Starlink</p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

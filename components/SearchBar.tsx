@@ -8,26 +8,18 @@ import AddressDetails from "./AddressDetails";
 const SearchBar = () => {
   return (
     <section className="search-bar">
-      <Image
-        src={SearchBarBg}
-        alt="Backgrond image"
-        objectFit="cover"
-        layout="fill"
-      />
-      <div className="search-bar__content">
-        <h1 className="search-bar__title">IP Address Tracker</h1>
-        <div className="search-bar__input-group">
-          <input
-            className="search-bar__input"
-            type="text"
-            defaultValue="192.212.174.101"
-          />
-          <div className="search-bar__input-icon">
-            <Image src={ArrowIcon} alt="Arrow SVG icon" />
-          </div>
+      <h1 className="search-bar__title">IP Address Tracker</h1>
+      <div className="search-bar__input-group">
+        <input
+          className="search-bar__input"
+          type="text"
+          defaultValue="192.212.174.101"
+        />
+        <div className="search-bar__input-icon">
+          <Image src={ArrowIcon} alt="Arrow SVG icon" />
         </div>
-        <AddressDetails />
       </div>
+      <AddressDetails />
     </section>
   );
 };

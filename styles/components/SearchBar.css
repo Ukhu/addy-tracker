@@ -1,20 +1,9 @@
 .search-bar {
   position: relative;
-  height: 18.75rem;
-  background: linear-gradient(225deg, #5f86f2 2.99%, #443d97 100%);
-}
-
-.search-bar__content {
-  position: absolute;
-  top: 0;
   padding: 1.5rem;
-  width: 100%;
-}
-
-@media screen and (min-width: 768px) {
-  .search-bar__content {
-    padding: 2rem;
-  }
+  height: 18.75rem;
+  background-image: url("../../assets/images/pattern-bg.png");
+  background-size: cover;
 }
 
 .search-bar__title {
