@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import { GetServerSideProps } from "next";
+import { toast, ToastContainer } from "react-toastify";
 
 import { IHomeProps, IIPData } from "../types";
 import { AddressInfoProvider } from "../context/AddressInfoContext";
 import fetcher from "../utils/fetcher";
 
 import SearchBar from "../components/SearchBar";
-import { toast, ToastContainer } from "react-toastify";
 
 const MapWithNoSSR = dynamic(() => import("../components/LeafletMap"), {
   ssr: false,
@@ -45,6 +46,9 @@ export default function Home({ initialData }: IHomeProps) {
 
   return (
     <div>
+      <Head>
+        <title>AddyTracker | Search for any IP Address or Domain</title>
+      </Head>
       <AddressInfoProvider value={{ data: ipData, loading }}>
         <SearchBar searchIp={fetchAddressDetails} />
         <MapWithNoSSR />
