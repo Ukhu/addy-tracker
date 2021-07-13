@@ -7,18 +7,14 @@ import { AddressInfoProvider } from "../context/AddressInfoContext";
 import fetcher from "../utils/fetcher";
 
 import SearchBar from "../components/SearchBar";
+import { toast, ToastContainer } from "react-toastify";
 
 const MapWithNoSSR = dynamic(() => import("../components/LeafletMap"), {
   ssr: false,
 });
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const requestIpAddress =
-    (ctx.req.headers["x-forwarded-for"] as string) ||
-    ctx.req.socket.remoteAddress ||
-    "";
-
-  const data = await fetcher(requestIpAddress);
+export const getServerSideProps: GetServerSideProps = async () => {
+  const data = await fetcher();
 
   return {
     props: {
@@ -33,10 +29,17 @@ export default function Home({ initialData }: IHomeProps) {
 
   const fetchAddressDetails = async (address: string) => {
     setLoading(true);
+
     const data = await fetcher(address);
-    if (data) {
+
+    if (data.ip) {
       setIpData(data);
       setLoading(false);
+    } else {
+      const errorMsg = "Unable to process your request";
+      setIpData(initialData);
+      setLoading(false);
+      toast.error(data.messages || errorMsg);
     }
   };
 
@@ -46,6 +49,7 @@ export default function Home({ initialData }: IHomeProps) {
         <SearchBar searchIp={fetchAddressDetails} />
         <MapWithNoSSR />
       </AddressInfoProvider>
+      <ToastContainer position="bottom-left" />
     </div>
   );
 }

@@ -24,7 +24,7 @@ const SearchBar = ({ searchIp }: ISearchBarProps) => {
         <input
           className="search-bar__input"
           type="text"
-          placeholder="Search for any IP address or domain"
+          placeholder="Search for any IP address or domain (e.g example.com)"
           onChange={handleChange}
         />
         <div
