@@ -14,8 +14,9 @@ const defaultData = {
   isp: "",
 };
 
-const AddressInfoContext = createContext<{ data: IIPData }>({
+const AddressInfoContext = createContext<{ data: IIPData; loading: boolean }>({
   data: defaultData,
+  loading: false,
 });
 
 export const AddressInfoProvider = AddressInfoContext.Provider;

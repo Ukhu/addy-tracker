@@ -49,4 +49,27 @@
   height: 3.625rem;
   width: 3.625rem;
   border-radius: 0 15px 15px 0;
+  cursor: pointer;
+}
+
+.animate {
+  animation: rotate 1s linear infinite, opacity 1s linear alternate infinite;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

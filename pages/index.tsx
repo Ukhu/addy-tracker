@@ -29,15 +29,20 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 export default function Home({ initialData }: IHomeProps) {
   const [ipData, setIpData] = useState<IIPData>(initialData);
+  const [loading, setLoading] = useState(false);
 
   const fetchAddressDetails = async (address: string) => {
+    setLoading(true);
     const data = await fetcher(address);
-    setIpData(data);
+    if (data) {
+      setIpData(data);
+      setLoading(false);
+    }
   };
 
   return (
     <div>
-      <AddressInfoProvider value={{ data: ipData }}>
+      <AddressInfoProvider value={{ data: ipData, loading }}>
         <SearchBar searchIp={fetchAddressDetails} />
         <MapWithNoSSR />
       </AddressInfoProvider>

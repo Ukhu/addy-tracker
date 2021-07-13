@@ -1,25 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
 
 import ArrowIcon from "../assets/icons/icon-arrow.svg";
 import { ISearchBarProps } from "../types";
 
 import AddressDetails from "./AddressDetails";
-
-interface IIPData {
-  ip: string;
-  location: {
-    region: string;
-    city: string;
-    lat: number;
-    lng: number;
-    postalCode: string;
-    timezone: string;
-  };
-  isp: string;
-}
+import AddressInfoContext from "../context/AddressInfoContext";
 
 const SearchBar = ({ searchIp }: ISearchBarProps) => {
+  const { loading } = useContext(AddressInfoContext);
+
   const [ipAddress, setIpAddress] = useState("");
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +31,11 @@ const SearchBar = ({ searchIp }: ISearchBarProps) => {
           className="search-bar__input-icon"
           onClick={() => searchIp(ipAddress)}
         >
-          <Image src={ArrowIcon} alt="Arrow SVG icon" />
+          <Image
+            src={ArrowIcon}
+            alt="Arrow SVG icon"
+            className={loading ? "animate" : ""}
+          />
         </div>
       </div>
       <AddressDetails />
