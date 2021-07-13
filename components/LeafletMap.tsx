@@ -1,7 +1,8 @@
-import L, { LatLngExpression } from "leaflet";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import L from "leaflet";
+import { useContext } from "react";
+import { MapContainer, TileLayer, Marker, MapConsumer } from "react-leaflet";
 
-const position: LatLngExpression = [51.556, -0.2796];
+import AddressInfoContext from "../context/AddressInfoContext";
 
 const icon = L.icon({
   iconUrl: "/icon-location.svg",
@@ -10,10 +11,13 @@ const icon = L.icon({
 });
 
 const LeafletMap = () => {
+  const { data } = useContext(AddressInfoContext);
+  const { location } = data;
+  const { lat, lng } = location;
+
   return (
     <MapContainer
       className="addy-tracker-map"
-      center={position}
       zoom={16}
       scrollWheelZoom={false}
     >
@@ -21,7 +25,13 @@ const LeafletMap = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={position} icon={icon} />
+      <Marker position={[lat, lng]} icon={icon} />
+      <MapConsumer>
+        {(map) => {
+          map.panTo([lat, lng]);
+          return null;
+        }}
+      </MapConsumer>
     </MapContainer>
   );
 };
